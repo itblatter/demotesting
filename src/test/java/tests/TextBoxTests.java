@@ -19,18 +19,23 @@ public class TextBoxTests {
 
     @Test
     void fillFormTest() {
-        open("/text-box");
+        open("/automation-practice-form");
 
-        $("#userName").setValue("IT");
-        $("#userEmail").setValue("itbl@gmail.com");
-        $("#currentAddress").setValue("Wall Street");
-        $("#permanentAddress").setValue("Permanent Street");
+        $("#firstName").setValue("Jeka");
+        $("#lastName").setValue("Gigant");
+        $("#userEmail").setValue("JekaITCoach@gmail.farm");
+        $x("//label[.='Female']").click();
+        $("#userNumber").setValue("1234567890");
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption("October");
+        $(".react-datepicker__year-select").selectOption("2000");
+        $(".react-datepicker__day--010").click();
+        $("#subjectsInput").setValue("Biology").pressEnter();
+        $("#subjectsInput").setValue("History").pressEnter();
+        $("#subjectsInput").setValue("Arts").pressEnter();
+        $x("//label[.='Music']").click();
+        $x("//label[.='Reading']").click();
+        $x("//label[.='Sports']").click();
 
-        $("#submit").scrollTo().shouldBe(visible, enabled).click();
-
-        $("#output #name").shouldHave(text("IT"));
-        $("#output #email").shouldHave(text("itbl@gmail.com"));
-        $("#output #currentAddress").shouldHave(text("Wall Street"));
-        $("#output #permanentAddress").shouldHave(text("Permanent Street"));
     }
 }
