@@ -4,6 +4,8 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -36,6 +38,15 @@ public class TextBoxTests {
         $x("//label[.='Music']").click();
         $x("//label[.='Reading']").click();
         $x("//label[.='Sports']").click();
+        $("#uploadPicture").uploadFile(
+                new File("/Users/ITBlatter/IdeaProjects/demotesting/src/test/resources/citilink.png")
+        );
+        $("#currentAddress").setValue("Gigant");
+        $("#state").click();
+        $x("//div[contains(@id,'react-select') and text()='Uttar Pradesh']").click();
+        $("#city").click();
+        $x("//div[contains(@id,'react-select') and text()='Agra']").click();
+        $("#submit").click();
 
     }
 }
